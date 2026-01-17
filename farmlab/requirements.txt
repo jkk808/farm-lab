@@ -1,0 +1,6 @@
+adafruit-circuitpython-ads1x15
+adafruit-circuitpython-scd4x
+adafruit-circuitpython-bme280
+adafruit-circuitpython-tsl2591
+adafruit-circuitpython-bh1750
+RPi.GPIO
