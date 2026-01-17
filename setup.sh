@@ -15,5 +15,9 @@ echo "Installing dependencies..."
 pip install -r requirements.txt
 
 echo ""
+echo "Adding alias to ~/.bashrc..."
+echo 'alias farmlab="~/farmlab/start.sh"' >> ~/.bashrc
+source ~/.bashrc
+
 echo "=== Setup complete ==="
-echo "Run sensors with: ./run.sh"
+echo "Run sensors with: farmlab"

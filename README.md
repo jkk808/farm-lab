@@ -22,16 +22,10 @@ chmod +x setup.sh run.sh
 ## Usage
 ```bash
 # Start readings (default 5s interval)
-./run.sh
+farmlab
 
 # Custom interval
-./run.sh -i 10
-```
-
-## Make Alias
-```bash
-echo 'alias farmlab="~/farmlab/start.sh"' >> ~/.bashrc
-source ~/.bashrc
+farmlab -i 10
 ```
 
 ## Monitor
