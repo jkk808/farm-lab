@@ -49,15 +49,10 @@ You should see `23` in the output grid (BH1750 default address).
 
 sudo apt update
 sudo apt install python3-lgpio python3-libgpiod libgpiod-dev
-
-source venv/bin/activate
-pip install lgpio
-
-sudo apt update
 sudo apt install swig build-essential python3-dev
 
 rm -rf venv
-python3.11 -m venv venv --system-site-packages
+python3 -m venv venv --system-site-packages
 source venv/bin/activate
 pip install adafruit-blinka adafruit-circuitpython-bh1750
 
