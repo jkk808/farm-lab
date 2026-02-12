@@ -9,7 +9,7 @@ A simple agricultural monitoring system for Raspberry Pi 5 with BH1750 light sen
 
 ## Wiring
 
-Connect the BH1750 to the Pi 5 GPIO header:
+Connect the BH1750 to the Pi 5 GPIO header (refer to pi5-pinout.png):
 
 | BH1750 Pin | Wire Color (Stemma QT) | Pi 5 Pin | GPIO |
 |------------|------------------------|----------|------|
@@ -37,6 +37,8 @@ chmod +x setup.sh start.sh
 ./setup.sh
 ```
 
+The setup script installs required system packages via apt and creates a Python virtual environment with `--system-site-packages` to access system-level GPIO libraries. This approach ensures compatibility with Raspberry Pi 5's GPIO requirements.
+
 ### 3. Verify Sensor Connection
 
 ```bash
@@ -46,15 +48,6 @@ i2cdetect -y 1
 You should see `23` in the output grid (BH1750 default address).
 
 ## Usage
-
-sudo apt update
-sudo apt install python3-lgpio python3-libgpiod libgpiod-dev
-sudo apt install swig build-essential python3-dev
-
-rm -rf venv
-python3 -m venv venv --system-site-packages
-source venv/bin/activate
-pip install adafruit-blinka adafruit-circuitpython-bh1750
 
 ### Start Sensor Readings
 
@@ -88,10 +81,11 @@ nohup ./start.sh > readings.log 2>&1 &
 tail -f readings.log
 ```
 
-### Add Alias for Quick Access
+### Quick Access with Alias
+
+The setup script automatically adds an alias to `~/.bashrc`. After running setup, activate it with:
 
 ```bash
-echo 'alias farmlab="~/farmlab/start.sh"' >> ~/.bashrc
 source ~/.bashrc
 
 # Now just run:
